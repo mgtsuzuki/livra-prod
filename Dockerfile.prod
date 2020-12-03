@@ -8,7 +8,7 @@ ENV RAILS_LOG_TO_STDOUT=true
 ENV RAILS_SERVE_STATIC_FILES=true
 ENV POSTGRES_USER=postgres
 ENV POSTGRES_PASSWORD=my-production-password
-ENV POSTGRES_DB=meca_production
+ENV POSTGRES_DB=livra_production
 
 # Permite que o apt opere com fontes baseadas em https
 RUN apt-get update -yqq && apt-get install -yqq --no-install-recommends apt-transport-https

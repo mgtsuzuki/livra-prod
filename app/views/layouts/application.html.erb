@@ -17,12 +17,27 @@
     </header>
     <section class="content">
       <nav class="side_nav">
+        <% if @cart %>
+          <div id="cart" class="carts">
+            <%= render_if @cart && @cart.line_items.any?, @cart %>
+          </div>
+        <% end %>
         <ul>
           <li><a href= <%= root_path %> >Home</a></li>
           <li><a href="/questions">Perguntas</a></li>
           <li><a href="/news">Notícias</a></li>
           <li><a href="/contact">Contato</a></li>
         </ul>
+        <% if current_user %>
+          <nav class="logged_in_nav">
+            <ul>
+              <li><%= link_to 'Pedidos', orders_path %></li>
+              <li><%= link_to 'Livros', products_path %></li>
+              <li><%= link_to 'Usuários', users_path %></li>
+              <li><%= button_to 'Logout', destroy_user_session_path, method: :delete   %></li>
+            </ul>
+          </nav>
+        <% end %>
       </nav>
       <main class='<%= controller.controller_name %>'>
         <%= yield %>
