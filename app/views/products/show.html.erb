@@ -11,13 +11,17 @@
 </p>
 
 <p>
-  <strong>Extension:</strong>
-  <%= @product.extension %>
+  <strong>Price:</strong>
+  <%= @product.price %>
 </p>
 
 <p>
-  <strong>Price:</strong>
-  <%= @product.price %>
+  <strong>Photo:</strong>
+  <% if @product.has_photo? %>
+    <%= image_tag @product.photo_path %>
+  <% else %>
+    Sem foto.
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
